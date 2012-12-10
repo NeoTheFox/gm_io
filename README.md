@@ -8,21 +8,21 @@ A Garry's Mod module that allows further file access.
 * __io__.POSITION_BEGINNING = 0x04
 
 ##Functions
-* __io__.open(__string__ path, __string__ mode)
+* __io__.open( __string__ path, __string__ mode)
   * File modes include: "r", "w", "a", "r+", "w+", "a+".
   * _returns_ fileObject on success, or nil on failure.
-* __io__.copy(__string__ from, __string__ to)
+* __io__.copy( __string__ from, __string__ to)
   * Copys a file to another path. 
   * _returns_ true on success, or false on failure.
-* __io__.move(__string__ from, __string__ to)
+* __io__.move( __string__ from, __string__ to)
   * Moves a file to another path.
   * _returns_ true on success, or false on failure.
-* __io__.exists(__string__ path)
+* __io__.exists( __string__ path)
   * returns true if the file exists, and false if not.
-* __io__.remove(__string__ from, __string__ to)
+* __io__.remove( __string__ from, __string__ to)
   * Removes a file. 
   * _returns_ true on success, or false on failure.
-* __io__.rename(__string__ from, __string__ to)
+* __io__.rename( __string__ from, __string__ to)
   * Renames a file.
   * _returns_ true on success, or false on failure.
 
