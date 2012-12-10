@@ -10,67 +10,14 @@
 namespace io {
 	class path {
 		public:
-			path(std::string _path) {
-				std::string slash("/");
-				std::regex  match("\\\\");
-				this->m_path = std::regex_replace(
-					_path,
-					match,
-					slash
-				);
-			};
+			path(std::string _path);
 
-			std::string getName() {
-				std::string blank("");
-				std::regex  match(this->getDirectory()+"\\/");
-				return std::regex_replace(
-					this->m_path,
-					match,
-					blank
-				);
-			};
-			std::string getPath() {
-				return this->m_path;
-			};
-			std::string getExtension() {
-				std::string blank("");
-				std::regex  match("^[^\\.]+\\.");
-				return std::regex_replace(
-					this->m_path,
-					match,
-					blank
-				);
-			};
-			std::string getDirectory() {
-				std::string blank("");
-				std::regex  match("\\/[^\\/]+$");
-				return std::regex_replace(
-					this->m_path,
-					match,
-					blank
-				);
-			};
+			std::string getName();
+			std::string getPath();
+			std::string getExtension();
+			std::string getDirectory();
 
-			bool isPotentiallyHarmful() {
-				std::string extension = this->getExtension();
-				//std::string directory = this->getDirectory();
-
-				if(extension == "exe")
-					return true;
-				if(extension == "bat")
-					return true;
-				if(extension == "scr")
-					return true;
-				if(extension == "dll")
-					return true;
-				if(extension == "com")
-					return true;
-				if(extension == "pif")
-					return true;
-				//if(directory != config::get("steam_directory"))
-				//	return true;
-				return false;
-			};
+			static bool isPotentiallyHarmful(std::string _path);
 		private:
 			std::string m_path;
 	};

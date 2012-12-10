@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="source">
+			<UniqueIdentifier>{6F25D65F-9157-7243-BB2C-CC69362820E0}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="source\io">
+			<UniqueIdentifier>{3A753EB5-0250-214A-9E9C-438E8576AD03}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="source\io\file">
+			<UniqueIdentifier>{A178C953-138E-E241-B14A-37CFEF8D936B}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="source\io\lua">
+			<UniqueIdentifier>{A4AAD426-9AC3-D94C-8887-F6CECF0EF5CB}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="source\io\lua\object">
+			<UniqueIdentifier>{EDDCC451-19CC-554B-9F37-07329735F942}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="source\io\path">
+			<UniqueIdentifier>{54CBCD09-85B4-B445-9A75-599DCABBCFAD}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="..\..\source\io\io.hpp">
+			<Filter>source\io</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\source\io\file\file.hpp">
+			<Filter>source\io\file</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\source\io\lua\lua.hpp">
+			<Filter>source\io\lua</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\source\io\lua\object\fileObject.hpp">
+			<Filter>source\io\lua\object</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\source\io\lua\object\pathObject.hpp">
+			<Filter>source\io\lua\object</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\source\io\path\path.hpp">
+			<Filter>source\io\path</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\source\io\io.cpp">
+			<Filter>source\io</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\source\io\file\file.cpp">
+			<Filter>source\io\file</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\source\io\lua\lua.cpp">
+			<Filter>source\io\lua</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\source\io\lua\object\fileObject.cpp">
+			<Filter>source\io\lua\object</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\source\io\lua\object\pathObject.cpp">
+			<Filter>source\io\lua\object</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\source\io\path\path.cpp">
+			<Filter>source\io\path</Filter>
+		</ClCompile>
+	</ItemGroup>
+</Project>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="source">
+			<UniqueIdentifier>{0F948679-00F7-4E47-961F-03DFEB27FCFC}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="source\LuaOO">
+			<UniqueIdentifier>{6C15F349-7B8C-B84F-BE3A-33661D718FF8}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="source\LuaOO\include">
+			<UniqueIdentifier>{2AC76AA9-40F2-EA4B-97FC-C8FBD77F37B7}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="source\LuaOO\source">
+			<UniqueIdentifier>{A1A1AC38-EC2D-6C47-8EE7-667A072F3292}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="..\..\source\LuaOO\include\CLASS_LuaBoundFunction.h">
+			<Filter>source\LuaOO\include</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\source\LuaOO\include\CLASS_LuaClassInfo.h">
+			<Filter>source\LuaOO\include</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\source\LuaOO\include\CLASS_LuaObjectBase.h">
+			<Filter>source\LuaOO\include</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\source\LuaOO\include\CLASS_LuaOO.h">
+			<Filter>source\LuaOO\include</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\source\LuaOO\include\MODULE_LuaOO.h">
+			<Filter>source\LuaOO\include</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\source\LuaOO\source\CLASS_LuaBoundFunction.cpp">
+			<Filter>source\LuaOO\source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\source\LuaOO\source\CLASS_LuaClassInfo.cpp">
+			<Filter>source\LuaOO\source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\source\LuaOO\source\CLASS_LuaObjectBase.cpp">
+			<Filter>source\LuaOO\source</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\source\LuaOO\source\CLASS_LuaOO.cpp">
+			<Filter>source\LuaOO\source</Filter>
+		</ClCompile>
+	</ItemGroup>
+</Project>

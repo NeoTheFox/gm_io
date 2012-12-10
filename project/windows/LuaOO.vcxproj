@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Server|Win32">
+			<Configuration>Server</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Client|Win32">
+			<Configuration>Client</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{670BAE3C-A81D-2D4E-BA24-322054A4C439}</ProjectGuid>
+		<RootNamespace>LuaOO</RootNamespace>
+		<Keyword>Win32Proj</Keyword>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Server|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<UseDebugLibraries>false</UseDebugLibraries>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Client|Win32'" Label="Configuration">
+		<ConfigurationType>StaticLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<UseDebugLibraries>false</UseDebugLibraries>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+	<ImportGroup Label="ExtensionSettings">
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Server|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Client|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros" />
+	<PropertyGroup>
+		<_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+		<OutDir Condition="'$(Configuration)|$(Platform)'=='Server|Win32'">bin\</OutDir>
+		<IntDir Condition="'$(Configuration)|$(Platform)'=='Server|Win32'">obj\Server\LuaOO\</IntDir>
+		<TargetName Condition="'$(Configuration)|$(Platform)'=='Server|Win32'">LuaOO</TargetName>
+		<OutDir Condition="'$(Configuration)|$(Platform)'=='Client|Win32'">bin\</OutDir>
+		<IntDir Condition="'$(Configuration)|$(Platform)'=='Client|Win32'">obj\Client\LuaOO\</IntDir>
+		<TargetName Condition="'$(Configuration)|$(Platform)'=='Client|Win32'">LuaOO</TargetName>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Server|Win32'">
+		<ClCompile>
+			<Optimization>Full</Optimization>
+			<AdditionalIncludeDirectories>..\..\include;..\..\source\LuaOO\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>NDEBUG;SERVER;WIN32;GMMODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<MinimalRebuild>false</MinimalRebuild>
+			<StringPooling>true</StringPooling>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<PrecompiledHeader></PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+			<FloatingPointModel>Fast</FloatingPointModel>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+		</ClCompile>
+		<ResourceCompile>
+			<PreprocessorDefinitions>NDEBUG;SERVER;WIN32;GMMODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>..\..\include;..\..\source\LuaOO\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+		</ResourceCompile>
+	<Lib>
+		<OutputFile>$(OutDir)LuaOO.lib</OutputFile>
+	</Lib>
+		<Link>
+			<SubSystem>Windows</SubSystem>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<ProgramDataBaseFileName>$(OutDir)LuaOO.pdb</ProgramDataBaseFileName>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Client|Win32'">
+		<ClCompile>
+			<Optimization>Full</Optimization>
+			<AdditionalIncludeDirectories>..\..\include;..\..\source\LuaOO\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>NDEBUG;CLIENT;WIN32;GMMODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<MinimalRebuild>false</MinimalRebuild>
+			<StringPooling>true</StringPooling>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<PrecompiledHeader></PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+			<FloatingPointModel>Fast</FloatingPointModel>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+		</ClCompile>
+		<ResourceCompile>
+			<PreprocessorDefinitions>NDEBUG;CLIENT;WIN32;GMMODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>..\..\include;..\..\source\LuaOO\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+		</ResourceCompile>
+	<Lib>
+		<OutputFile>$(OutDir)LuaOO.lib</OutputFile>
+	</Lib>
+		<Link>
+			<SubSystem>Windows</SubSystem>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<ProgramDataBaseFileName>$(OutDir)LuaOO.pdb</ProgramDataBaseFileName>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<ClInclude Include="..\..\source\LuaOO\include\CLASS_LuaBoundFunction.h" />
+		<ClInclude Include="..\..\source\LuaOO\include\CLASS_LuaClassInfo.h" />
+		<ClInclude Include="..\..\source\LuaOO\include\CLASS_LuaObjectBase.h" />
+		<ClInclude Include="..\..\source\LuaOO\include\CLASS_LuaOO.h" />
+		<ClInclude Include="..\..\source\LuaOO\include\MODULE_LuaOO.h" />
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\source\LuaOO\source\CLASS_LuaBoundFunction.cpp">
+		</ClCompile>
+		<ClCompile Include="..\..\source\LuaOO\source\CLASS_LuaClassInfo.cpp">
+		</ClCompile>
+		<ClCompile Include="..\..\source\LuaOO\source\CLASS_LuaObjectBase.cpp">
+		</ClCompile>
+		<ClCompile Include="..\..\source\LuaOO\source\CLASS_LuaOO.cpp">
+		</ClCompile>
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+	<ImportGroup Label="ExtensionTargets">
+	</ImportGroup>
+</Project>

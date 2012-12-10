@@ -12,8 +12,8 @@ solution "io"
     }
 
 	language "c++"
-	location("build/"..os.get().."/")
-	targetdir("build/"..os.get().."/bin/")
+	location("project/"..os.get().."/")
+	targetdir("project/"..os.get().."/bin/")
 
         if os.get() == "linux" then
             buildoptions {"-fPIC"}

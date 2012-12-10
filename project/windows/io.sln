@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LuaOO", "LuaOO.vcxproj", "{670BAE3C-A81D-2D4E-BA24-322054A4C439}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "io", "io.vcxproj", "{AA4520FB-B952-944E-9EA3-C425222FD2D5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{670BAE3C-A81D-2D4E-BA24-322054A4C439} = {670BAE3C-A81D-2D4E-BA24-322054A4C439}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Server|Win32 = Server|Win32
+		Client|Win32 = Client|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{670BAE3C-A81D-2D4E-BA24-322054A4C439}.Server|Win32.ActiveCfg = Server|Win32
+		{670BAE3C-A81D-2D4E-BA24-322054A4C439}.Server|Win32.Build.0 = Server|Win32
+		{670BAE3C-A81D-2D4E-BA24-322054A4C439}.Client|Win32.ActiveCfg = Client|Win32
+		{670BAE3C-A81D-2D4E-BA24-322054A4C439}.Client|Win32.Build.0 = Client|Win32
+		{AA4520FB-B952-944E-9EA3-C425222FD2D5}.Server|Win32.ActiveCfg = Server|Win32
+		{AA4520FB-B952-944E-9EA3-C425222FD2D5}.Server|Win32.Build.0 = Server|Win32
+		{AA4520FB-B952-944E-9EA3-C425222FD2D5}.Client|Win32.ActiveCfg = Client|Win32
+		{AA4520FB-B952-944E-9EA3-C425222FD2D5}.Client|Win32.Build.0 = Client|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

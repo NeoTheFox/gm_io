@@ -7,7 +7,11 @@
 
 #include "../lua.hpp"
 
-class pathObject 
+namespace io {
+	class path;
+}
+
+class pathObject
 	: public LuaObjectBaseTemplate<pathObject, 217> {
 	LUA_OBJECT
 	public:

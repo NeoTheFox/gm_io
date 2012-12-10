@@ -48,16 +48,16 @@ namespace io {
 		try {
 			switch(position) {
 				case position::end:
-					this->m_stream->seekg(std::ios::end);
-					this->m_stream->seekp(std::ios::end);
+					this->m_stream->seekg(0, std::ios::end);
+					this->m_stream->seekp(0, std::ios::end);
 				break;
 				case position::current:
-					this->m_stream->seekg(std::ios::cur);
-					this->m_stream->seekp(std::ios::cur);
+					this->m_stream->seekg(0, std::ios::cur);
+					this->m_stream->seekp(0, std::ios::cur);
 				break;
 				case position::beginning:
-					this->m_stream->seekg(std::ios::beg);
-					this->m_stream->seekp(std::ios::beg);
+					this->m_stream->seekg(0, std::ios::beg);
+					this->m_stream->seekp(0, std::ios::beg);
 				break;
 				default:
 					return false;
@@ -101,9 +101,10 @@ namespace io {
 		if(!this->is_open())
 			return false;
 		try {
-			char* buffer = new char[length];
+			char* buffer = new char[length + 1];
 			this->m_stream->read(buffer, length);
 			this->m_stream->clear();
+			buffer[length + 1] = '\0';
 
 			data = std::string(buffer);
 			return true;
@@ -125,17 +126,17 @@ namespace io {
 	}
 	bool file::open (std::string& path, std::string& mode) {
 		if(mode == "r")
-			this->m_stream->open(path.c_str(), std::ios::in);
+			this->m_stream->open(path.c_str(), std::ios::in | std::ios::binary);
 		else if(mode == "w")
-			this->m_stream->open(path.c_str(), std::ios::out | std::ios::trunc);
+			this->m_stream->open(path.c_str(), std::ios::out | std::ios::trunc | std::ios::binary);
 		else if(mode == "a")
-			this->m_stream->open(path.c_str(), std::ios::out | std::ios::app);
+			this->m_stream->open(path.c_str(), std::ios::out | std::ios::app | std::ios::binary);
 		else if(mode == "r+")
-			this->m_stream->open(path.c_str(), std::ios::in | std::ios::out);
+			this->m_stream->open(path.c_str(), std::ios::in | std::ios::out | std::ios::binary);
 		else if(mode == "w+")
-			this->m_stream->open(path.c_str(), std::ios::in | std::ios::out | std::ios::trunc);
+			this->m_stream->open(path.c_str(), std::ios::in | std::ios::out | std::ios::trunc | std::ios::binary);
 		else if(mode == "a+")
-			this->m_stream->open(path.c_str(), std::ios::in | std::ios::out | std::ios::app);
+			this->m_stream->open(path.c_str(), std::ios::in | std::ios::out | std::ios::app | std::ios::binary);
 		else
 			return false;
 		if(this->is_open())

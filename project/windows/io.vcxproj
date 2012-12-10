@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup Label="ProjectConfigurations">
+		<ProjectConfiguration Include="Server|Win32">
+			<Configuration>Server</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+		<ProjectConfiguration Include="Client|Win32">
+			<Configuration>Client</Configuration>
+			<Platform>Win32</Platform>
+		</ProjectConfiguration>
+	</ItemGroup>
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>{AA4520FB-B952-944E-9EA3-C425222FD2D5}</ProjectGuid>
+		<RootNamespace>io</RootNamespace>
+		<Keyword>Win32Proj</Keyword>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Server|Win32'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<UseDebugLibraries>false</UseDebugLibraries>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Client|Win32'" Label="Configuration">
+		<ConfigurationType>DynamicLibrary</ConfigurationType>
+		<CharacterSet>MultiByte</CharacterSet>
+		<WholeProgramOptimization>true</WholeProgramOptimization>
+		<UseDebugLibraries>false</UseDebugLibraries>
+	</PropertyGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+	<ImportGroup Label="ExtensionSettings">
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Server|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Client|Win32'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+	</ImportGroup>
+	<PropertyGroup Label="UserMacros" />
+	<PropertyGroup>
+		<_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+		<OutDir Condition="'$(Configuration)|$(Platform)'=='Server|Win32'">bin\</OutDir>
+		<IntDir Condition="'$(Configuration)|$(Platform)'=='Server|Win32'">obj\Server\io\</IntDir>
+		<TargetName Condition="'$(Configuration)|$(Platform)'=='Server|Win32'">gmsv_io_win32</TargetName>
+		<IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Server|Win32'">false</IgnoreImportLibrary>
+		<LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Server|Win32'">false</LinkIncremental>
+		<OutDir Condition="'$(Configuration)|$(Platform)'=='Client|Win32'">bin\</OutDir>
+		<IntDir Condition="'$(Configuration)|$(Platform)'=='Client|Win32'">obj\Client\io\</IntDir>
+		<TargetName Condition="'$(Configuration)|$(Platform)'=='Client|Win32'">gmcl_io_win32</TargetName>
+		<IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Client|Win32'">false</IgnoreImportLibrary>
+		<LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Client|Win32'">false</LinkIncremental>
+	</PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Server|Win32'">
+		<ClCompile>
+			<Optimization>Full</Optimization>
+			<AdditionalIncludeDirectories>..\..\include;..\..\source\LuaOO\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>NDEBUG;SERVER;WIN32;GMMODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<MinimalRebuild>false</MinimalRebuild>
+			<StringPooling>true</StringPooling>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<PrecompiledHeader></PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+			<FloatingPointModel>Fast</FloatingPointModel>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+		</ClCompile>
+		<ResourceCompile>
+			<PreprocessorDefinitions>NDEBUG;SERVER;WIN32;GMMODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>..\..\include;..\..\source\LuaOO\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+		</ResourceCompile>
+		<Link>
+			<AdditionalDependencies>bin\LuaOO.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<OutputFile>$(OutDir)gmsv_io_win32.dll</OutputFile>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<SubSystem>Windows</SubSystem>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<ProgramDataBaseFileName>$(OutDir)gmsv_io_win32.pdb</ProgramDataBaseFileName>
+			<ImportLibrary>bin\gmsv_io_win32.lib</ImportLibrary>
+			<TargetMachine>MachineX86</TargetMachine>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Client|Win32'">
+		<ClCompile>
+			<Optimization>Full</Optimization>
+			<AdditionalIncludeDirectories>..\..\include;..\..\source\LuaOO\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+			<PreprocessorDefinitions>NDEBUG;CLIENT;WIN32;GMMODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<MinimalRebuild>false</MinimalRebuild>
+			<StringPooling>true</StringPooling>
+			<RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<PrecompiledHeader></PrecompiledHeader>
+			<WarningLevel>Level3</WarningLevel>
+			<EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+			<FloatingPointModel>Fast</FloatingPointModel>
+			<DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+		</ClCompile>
+		<ResourceCompile>
+			<PreprocessorDefinitions>NDEBUG;CLIENT;WIN32;GMMODULE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalIncludeDirectories>..\..\include;..\..\source\LuaOO\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+		</ResourceCompile>
+		<Link>
+			<AdditionalDependencies>bin\LuaOO.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<OutputFile>$(OutDir)gmcl_io_win32.dll</OutputFile>
+			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<SubSystem>Windows</SubSystem>
+			<GenerateDebugInformation>true</GenerateDebugInformation>
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<ProgramDataBaseFileName>$(OutDir)gmcl_io_win32.pdb</ProgramDataBaseFileName>
+			<ImportLibrary>bin\gmcl_io_win32.lib</ImportLibrary>
+			<TargetMachine>MachineX86</TargetMachine>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemGroup>
+		<ClInclude Include="..\..\source\io\io.hpp" />
+		<ClInclude Include="..\..\source\io\file\file.hpp" />
+		<ClInclude Include="..\..\source\io\lua\lua.hpp" />
+		<ClInclude Include="..\..\source\io\lua\object\fileObject.hpp" />
+		<ClInclude Include="..\..\source\io\lua\object\pathObject.hpp" />
+		<ClInclude Include="..\..\source\io\path\path.hpp" />
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="..\..\source\io\io.cpp">
+		</ClCompile>
+		<ClCompile Include="..\..\source\io\file\file.cpp">
+		</ClCompile>
+		<ClCompile Include="..\..\source\io\lua\lua.cpp">
+		</ClCompile>
+		<ClCompile Include="..\..\source\io\lua\object\fileObject.cpp">
+		</ClCompile>
+		<ClCompile Include="..\..\source\io\lua\object\pathObject.cpp">
+		</ClCompile>
+		<ClCompile Include="..\..\source\io\path\path.cpp">
+		</ClCompile>
+	</ItemGroup>
+	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+	<ImportGroup Label="ExtensionTargets">
+	</ImportGroup>
+</Project>
