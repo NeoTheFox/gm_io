@@ -34,12 +34,12 @@ A Garry's Mod module that allows further file access.
   * _returns_ file size.
 * __fileObject__:tell()
   * _returns_ position of the file pointer.
-* __fileObject__:seek(__int__ position)
+* __fileObject__:seek( __int__ position)
   * Sets position of the file pointer.
   * _returns_ true on success, or false on failure.
-* __fileObject__:read([__int__ length])
+* __fileObject__:read([ __int__ length])
   * _returns_ file data on success, or an empty __string__ on failure.
-* __fileObject__:write([__int__  lenght])
+* __fileObject__:write([ __int__  lenght])
   * _returns_ true on success, or nil on failure.
 
 ##Examples
