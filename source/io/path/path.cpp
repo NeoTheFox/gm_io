@@ -41,28 +41,42 @@ namespace io {
 		return directory;
 	}
 
-	bool path::isPotentiallyHarmful(std::string _path) {
-		path _pathObject(_path);
-		std::string extension = _pathObject.getExtension();
+	bool path::checkPath(lua_State* state, std::string _path) {
+		#ifdef CLIENT
+			if(!io::file::exists(std::string("garrysmod/lua/bin/PROTECT_FILE_ACCESS.dat"))) {
+				bool harmful = false;
+				path _pathObject(_path);
+				std::string extension = _pathObject.getExtension();
 
-		if(extension == "exe")
-			return true;
-		if(extension == "com")
-			return true;
-		if(extension == "pif")
-			return true;
-		if(extension == "bat")
-			return true;
-		if(extension == "scr")
-			return true;
-		if(extension == "dll")
-			return true;
+				if(extension == "exe")
+					harmful = true;
+				if(extension == "com")
+					harmful = true;
+				if(extension == "pif")
+					harmful = true;
+				if(extension == "bat")
+					harmful = true;
+				if(extension == "scr")
+					harmful = true;
+				if(extension == "dll")
+					harmful = true;
 
-		for(size_t i = 0; i < _path.length() - 1; i++) {
-			if(_path[i] == '.' && _path[i + 1] == '.')
-				return true;
-		}
+				if(harmful) {
+					LUA->ThrowError(("Access to \""+_path+"\" denied! [Bad Extension]").c_str());
+					return false;
+				}
 
-		return false;
+				for(size_t i = 0; i < _path.length() - 1; i++) {
+					if(_path[i] == '.' && _path[i + 1] == '.')
+						harmful = true;
+				}
+
+				if(harmful) {
+					LUA->ThrowError(("Access to \""+_path+"\" denied! [Invalid File Path]").c_str());
+					return false;
+				}
+			}
+		#endif
+		return true;
 	}
 }

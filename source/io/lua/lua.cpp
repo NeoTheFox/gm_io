@@ -10,12 +10,8 @@ namespace io {
 
 			path = "garrysmod/" + path;
 
-			#ifdef CLIENT
-				if(io::path::isPotentiallyHarmful(path)) {
-					LUA->ThrowError(("Denied Access to \""+path+"\".").c_str());
-					return 0;
-				}
-			#endif
+			if(!io::path::checkPath(state, path))
+				return 0;
 
 			fileObject* object = new fileObject(path, mode, state);
 			object->pushObject();
@@ -28,16 +24,10 @@ namespace io {
 			from = "garrysmod/" + from;
 			to = "garrysmod/" + to;
 
-			#ifdef CLIENT
-				if(io::path::isPotentiallyHarmful(from)) {
-					LUA->ThrowError(("Denied Access to \""+from+"\".").c_str());
-					return 0;
-				}
-				if(io::path::isPotentiallyHarmful(to)) {
-					LUA->ThrowError(("Denied Access to \""+to+"\".").c_str());
-					return 0;
-				}
-			#endif
+			if(!io::path::checkPath(state, from))
+				return 0;
+			if(!io::path::checkPath(state, to))
+				return 0;
 
 			LUA->PushBool(io::file::copy(from, to));
 			return 1;
@@ -49,16 +39,10 @@ namespace io {
 			from = "garrysmod/" + from;
 			to = "garrysmod/" + to;
 
-			#ifdef CLIENT
-				if(io::path::isPotentiallyHarmful(from)) {
-					LUA->ThrowError(("Denied Access to \""+from+"\".").c_str());
-					return 0;
-				}
-				if(io::path::isPotentiallyHarmful(to)) {
-					LUA->ThrowError(("Denied Access to \""+to+"\".").c_str());
-					return 0;
-				}
-			#endif
+			if(!io::path::checkPath(state, from))
+				return 0;
+			if(!io::path::checkPath(state, to))
+				return 0;
 
 			LUA->PushBool(io::file::move(from, to));
 			return 0;
@@ -68,12 +52,10 @@ namespace io {
 
 			path = "garrysmod/" + path;
 
-			#ifdef CLIENT
-				if(io::path::isPotentiallyHarmful(path)) {
-					LUA->ThrowError(("Denied Access to \""+path+"\".").c_str());
-					return 0;
-				}
-			#endif
+			if(!io::path::checkPath(state, path)) {
+				LUA->ThrowError(("Denied Access to \""+path+"\".").c_str());
+				return 0;
+			}
 
 			LUA->PushBool(::io::file::exists(path));
 			return 0;
@@ -83,12 +65,8 @@ namespace io {
 
 			path = "garrysmod/" + path;
 
-			#ifdef CLIENT
-				if(io::path::isPotentiallyHarmful(path)) {
-					LUA->ThrowError(("Denied Access to \""+path+"\".").c_str());
-					return 0;
-				}
-			#endif
+			if(!io::path::checkPath(state, path))
+				return 0;
 
 			LUA->PushBool(io::file::remove(path));
 			return 0;
@@ -100,16 +78,10 @@ namespace io {
 			from = "garrysmod/" + from;
 			to = "garrysmod/" + to;
 
-			#ifdef CLIENT
-				if(io::path::isPotentiallyHarmful(from)) {
-					LUA->ThrowError(("Denied Access to \""+from+"\".").c_str());
-					return 0;
-				}
-				if(io::path::isPotentiallyHarmful(to)) {
-					LUA->ThrowError(("Denied Access to \""+to+"\".").c_str());
-					return 0;
-				}
-			#endif
+			if(!io::path::checkPath(state, from))
+				return 0;
+			if(!io::path::checkPath(state, to))
+				return 0;
 
 			LUA->PushBool(io::file::rename(from, to));
 			return 1;

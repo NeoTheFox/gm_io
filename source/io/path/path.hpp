@@ -17,7 +17,7 @@ namespace io {
 			std::string getExtension();
 			std::string getDirectory();
 
-			static bool isPotentiallyHarmful(std::string _path);
+			static bool checkPath(lua_State* state, std::string _path);
 		private:
 			std::string m_path;
 	};

@@ -5,12 +5,6 @@ fileObject::fileObject(std::string path, std::string mode, lua_State* state)
 	: ::LuaObjectBaseTemplate<fileObject>(state) {
 	this->m_file = new io::file();
 	this->m_file->open(path, mode);
-
-	MLUA->PushSpecial(GarrysMod::Lua::SPECIAL_GLOB);
-		MLUA->GetField(-1, "print");
-		MLUA->PushBool(this->m_file->is_open());
-		MLUA->Call(1, 0);
-	MLUA->Pop();
 }
 fileObject::~fileObject() {
 	delete this->m_file;
