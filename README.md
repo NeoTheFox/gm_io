@@ -38,7 +38,7 @@ A Garry's Mod module that allows further file access.
   * Sets position of the file pointer.
   * _returns_ true on success, or false on failure.
 * __fileObject__:read([ __int__ length])
-  * _returns_ file data on success, or an empty __string__ on failure.
+  * _returns_ file data on success, or an empty string on failure.
 * __fileObject__:write([ __int__  lenght])
   * _returns_ true on success, or nil on failure.
 
