@@ -25,7 +25,7 @@ ifeq ($(config),server)
   TARGET     = $(TARGETDIR)/libLuaOO.a
   DEFINES   += -DNDEBUG -DSERVER -DLINUX -DGMMODULE
   INCLUDES  += -I../../include -I../../source/LuaOO/include
-  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CPPFLAGS  += -std=c++11 -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -msse -O2 -ffast-math -fPIC
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += -fPIC
@@ -47,7 +47,7 @@ ifeq ($(config),client)
   TARGET     = $(TARGETDIR)/libLuaOO.a
   DEFINES   += -DNDEBUG -DCLIENT -DLINUX -DGMMODULE
   INCLUDES  += -I../../include -I../../source/LuaOO/include
-  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CPPFLAGS  += -std=c++11 -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -msse -O2 -ffast-math -fPIC
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += -fPIC
@@ -69,7 +69,7 @@ ifeq ($(config),server32)
   TARGET     = $(TARGETDIR)/libLuaOO.a
   DEFINES   += -DNDEBUG -DSERVER -DLINUX -DGMMODULE
   INCLUDES  += -I../../include -I../../source/LuaOO/include
-  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CPPFLAGS  += -std=c++11 -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -msse -O2 -ffast-math -m32 -fPIC
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += -m32 -L/usr/lib32 -fPIC
@@ -91,7 +91,7 @@ ifeq ($(config),client32)
   TARGET     = $(TARGETDIR)/libLuaOO.a
   DEFINES   += -DNDEBUG -DCLIENT -DLINUX -DGMMODULE
   INCLUDES  += -I../../include -I../../source/LuaOO/include
-  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CPPFLAGS  += -std=c++11 -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -msse -O2 -ffast-math -m32 -fPIC
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += -m32 -L/usr/lib32 -fPIC

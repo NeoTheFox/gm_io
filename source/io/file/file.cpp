@@ -1,6 +1,11 @@
 #include "file.hpp"
 
 namespace io {
+	//tmp fix for Linux
+	std::string _fixmeW = "w+";
+	std::string _fixmeR = "r+";
+	std::string _fixmer = "r";
+
 	file::file() : m_stream(NULL) {
 		this->m_stream = new std::fstream();
 	}
@@ -150,8 +155,8 @@ namespace io {
 		file* from_ = new file();
 
 		if(!(
-			to_->open(to, std::string("w+"))	&&
-			from_->open(from, std::string("r+"))
+			to_->open(to, _fixmeW)	&&
+			from_->open(from, _fixmeR)
 		))
 			return false;
 		if(!(
@@ -169,8 +174,8 @@ namespace io {
 		file* from_ = new file();
 
 		if(!(
-			to_->open(to, std::string("w+"))	&&
-			from_->open(from, std::string("r+"))
+			to_->open(to, _fixmeW)	&&
+			from_->open(from, _fixmeR)
 		))
 			return false;
 		if(!(
@@ -185,7 +190,7 @@ namespace io {
 	bool file::exists(std::string& path) {
 		bool  ret = false;
 		file* tmp = new file();
-		tmp->open(path, std::string("r"));
+		tmp->open(path, _fixmer);
 		ret = tmp->is_open();
 		tmp->close();
 		return ret;

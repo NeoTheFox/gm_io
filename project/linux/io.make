@@ -25,7 +25,7 @@ ifeq ($(config),server)
   TARGET     = $(TARGETDIR)/libgmsv_io_win32.so
   DEFINES   += -DNDEBUG -DSERVER -DLINUX -DGMMODULE
   INCLUDES  += -I../../include -I../../source/LuaOO/include
-  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CPPFLAGS  += -std=c++11 -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -msse -O2 -ffast-math -fPIC -fPIC
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += -shared -fPIC -Lbin
@@ -47,7 +47,7 @@ ifeq ($(config),client)
   TARGET     = $(TARGETDIR)/libgmcl_io_linux.so
   DEFINES   += -DNDEBUG -DCLIENT -DLINUX -DGMMODULE
   INCLUDES  += -I../../include -I../../source/LuaOO/include
-  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CPPFLAGS  += -std=c++11 -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -msse -O2 -ffast-math -fPIC -fPIC
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += -shared -fPIC -Lbin
@@ -69,7 +69,7 @@ ifeq ($(config),server32)
   TARGET     = $(TARGETDIR)/libgmsv_io_win32.so
   DEFINES   += -DNDEBUG -DSERVER -DLINUX -DGMMODULE
   INCLUDES  += -I../../include -I../../source/LuaOO/include
-  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CPPFLAGS  += -std=c++11 -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -msse -O2 -ffast-math -m32 -fPIC -fPIC
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += -shared -m32 -L/usr/lib32 -fPIC -Lbin
@@ -91,7 +91,7 @@ ifeq ($(config),client32)
   TARGET     = $(TARGETDIR)/libgmcl_io_linux.so
   DEFINES   += -DNDEBUG -DCLIENT -DLINUX -DGMMODULE
   INCLUDES  += -I../../include -I../../source/LuaOO/include
-  CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
+  CPPFLAGS  += -std=c++11 -MMD -MP $(DEFINES) $(INCLUDES)
   CFLAGS    += $(CPPFLAGS) $(ARCH) -g -msse -O2 -ffast-math -m32 -fPIC -fPIC
   CXXFLAGS  += $(CFLAGS) 
   LDFLAGS   += -shared -m32 -L/usr/lib32 -fPIC -Lbin
